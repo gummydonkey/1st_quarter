@@ -1,36 +1,31 @@
-﻿string[] arr = { "f+", "213e", "1d1", "ffa12f" };
-string[] ResultArray(string[] arr)
+﻿string[] arr = { "f+qw", "21e", "1d1", "ffa12f", "+1" };
+int SizeArray(string[] arr)
 {
-    int valueCount = 0;
+    int size = 0;
     for (int i = 0; i < arr.Length; i++)
     {
-        if (arr[i].Length <= 3)
-        {
-            valueCount++;
-            System.Console.WriteLine(arr[i]);
-        }
+        if (arr[i].Length <= 3) size++;
     }
-    System.Console.WriteLine(valueCount);
-    string[] resArr = new string[valueCount];
-    for (int i = 0; i < arr.Length; i++)
-    {
-        int j = 0;
-        if (arr[i].Length <= 3)
-            resArr[j] = arr[i];
-        j++;
-        System.Console.WriteLine($"{resArr[j]}");
-    }
-    return resArr;
+    return size;
 }
 
-/*void PrintArray(string [] resArr)
+int sizeResArray = SizeArray(arr);
+
+string[] resArr = new string[sizeResArray];
+int j = 0;
+for (int i = 0; i < arr.Length; i++)
 {
-    for (int i = 0; i < resArr.Length; i++)
+    if (arr[i].Length <= 3)
     {
-        System.Console.WriteLine($"{resArr[i]}");
+        resArr[j] = arr[i];
+        j++;
     }
 }
-*/
-string[] resArr1 = ResultArray(arr);
-string resultArray = string.Join(" ", resArr1);
-Console.WriteLine(resultArray);
+
+SizeArray(arr);
+var stringArr = string.Join(", ", resArr);
+System.Console.WriteLine();
+Console.WriteLine($"[{stringArr}]");
+System.Console.WriteLine();
+
+
